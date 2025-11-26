@@ -1,0 +1,6 @@
+google-cloud-aiplatform[adk,agent_engines]
+Flask[async]
+flask-cors
+Flask-Caching
+gunicorn>=19.2.0,<21.0
+google-cloud-firestore

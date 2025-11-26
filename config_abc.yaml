@@ -1,0 +1,61 @@
+# gcpapi-run.yaml
+swagger: '2.0'
+info:
+  title: abc-recruiter-jobapplicant-dev
+  description: Sample API on API Gateway with a Cloud Run backend
+  version: 1.0.0
+schemes:
+- https
+produces:
+- application/json
+paths:
+  /{api_name}:
+    options:
+      summary: code_gen_ai_summary_options
+      operationId: code_gen_ai_options
+      x-google-backend:
+        address: <cloud run url>
+        path_translation: APPEND_PATH_TO_ADDRESS
+        deadline: 600.0
+      parameters:
+        - in: "path"
+          name: "api_name"
+          description: "name of the api to be called"
+          required: true
+          type: "string"
+
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: code_gen_ai_summary_post
+      operationId: code_gen_ai_post
+      x-google-backend:
+        address: <cloud run url>
+        path_translation: APPEND_PATH_TO_ADDRESS
+        deadline: 600.0
+      parameters:
+        - in: "path"
+          name: "api_name"
+          description: "name of the api to be called"
+          required: true
+          type: "string"
+      responses:
+        '200':
+          description: OK
+    get:
+      summary: code_gen_ai_get_summary
+      operationId: code_gen_ai_get
+      x-google-backend:
+        address: <cloud run url>
+        path_translation: APPEND_PATH_TO_ADDRESS
+        deadline: 600.0
+      parameters:
+        - in: "path"
+          name: "api_name"
+          description: "name of the api to be called"
+          required: true
+          type: "string"
+      responses:
+        '200':
+          description: OK
